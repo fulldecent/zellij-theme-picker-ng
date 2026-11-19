@@ -1,0 +1,12 @@
+# ModeUpdate supplies the session theme. Styling::default() is gray on gray.
+# A Zellij session sends ModeUpdate, and that is the picture this snapshot records.
+# Permissions stay ungranted so the first frame is the built-in list.
+name: screenshot
+plugin: ../target/wasm32-wasip1/release/plugin.wasm
+geometry:
+  rows: 18
+  cols: 72
+steps:
+  - action: mode_update
+    mode: normal
+    session: demo

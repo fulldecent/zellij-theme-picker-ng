@@ -1,0 +1,12 @@
+[package]
+name = "plugin"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+authors = ["William Entriken"]
+description = "Zellij Theme Picker: a floating pane that previews a theme and applies it to the session or config.kdl."
+repository = "https://github.com/fulldecent/zellij-theme-picker"
+
+[dependencies]
+unicode-width = "0.2"
+zellij-tile = "0.45.1"
