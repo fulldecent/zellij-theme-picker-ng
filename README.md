@@ -1,6 +1,6 @@
 # Zellij Theme Picker
 
-[![Lint](https://github.com/fulldecent/zellij-theme-picker/actions/workflows/lint.yml/badge.svg)](https://github.com/fulldecent/zellij-theme-picker/actions/workflows/lint.yml) [![Build and test](https://github.com/fulldecent/zellij-theme-picker/actions/workflows/build-test.yml/badge.svg)](https://github.com/fulldecent/zellij-theme-picker/actions/workflows/build-test.yml)
+[![Lint](https://github.com/fulldecent/zellij-theme-picker-ng/actions/workflows/lint.yml/badge.svg)](https://github.com/fulldecent/zellij-theme-picker-ng/actions/workflows/lint.yml) [![Build and test](https://github.com/fulldecent/zellij-theme-picker-ng/actions/workflows/build-test.yml/badge.svg)](https://github.com/fulldecent/zellij-theme-picker-ng/actions/workflows/build-test.yml)
 
 A window for choosing a Zellij theme. The theme changes as you move through the list. Enter applies the checked boxes and closes the window. Esc puts the previous theme back.
 
@@ -13,8 +13,8 @@ This is a [Zellij](https://zellij.dev/) plugin and supports Zellij 0.45 or newer
 1. Select the latest wasm release and install to your plugins folder:
 
    ```sh
-   name="com.github.fulldecent.zellij-theme-picker.wasm"
-   base="https://github.com/fulldecent/zellij-theme-picker/releases/latest/download"
+   name="com.github.fulldecent.zellij-theme-picker-ng.wasm"
+   base="https://github.com/fulldecent/zellij-theme-picker-ng/releases/latest/download"
    mkdir -p ~/.config/zellij/plugins
    curl -fL -o ~/.config/zellij/plugins/"$name" "$base/$name"
    curl -fL -o ~/.config/zellij/plugins/"${name}.sigstore.jsonl" "$base/${name}.sigstore.jsonl"
@@ -24,7 +24,7 @@ This is a [Zellij](https://zellij.dev/) plugin and supports Zellij 0.45 or newer
 
    ```sh
    gh attestation verify ~/.config/zellij/plugins/"$name" \
-     -R fulldecent/zellij-theme-picker \
+     -R fulldecent/zellij-theme-picker-ng \
      --bundle ~/.config/zellij/plugins/"${name}.sigstore.jsonl"
    ```
 
@@ -41,7 +41,7 @@ This is a [Zellij](https://zellij.dev/) plugin and supports Zellij 0.45 or newer
        }
        floating_panes {
            pane name="Themes" focus=true x="10%" y="8%" width="80%" height="75%" {
-               plugin location="file:~/.config/zellij/plugins/com.github.fulldecent.zellij-theme-picker.wasm"
+               plugin location="file:~/.config/zellij/plugins/com.github.fulldecent.zellij-theme-picker-ng.wasm"
            }
        }
    }'
@@ -122,8 +122,8 @@ Clone the project and build. On Linux and macOS:
 > If you do not require cross compilation, remove the `DYLD_LIBRARY_PATH="..."` part of all commands in this README.
 
 ```sh
-git clone https://github.com/fulldecent/zellij-theme-picker.git
-cd zellij-theme-picker
+git clone https://github.com/fulldecent/zellij-theme-picker-ng.git
+cd zellij-theme-picker-ng
 rustup show
 cargo_bin=$(rustup which cargo)
 export PATH="$(dirname "$cargo_bin"):$PATH"
@@ -135,8 +135,8 @@ cargo build --locked
 In PowerShell:
 
 ```powershell
-git clone https://github.com/fulldecent/zellij-theme-picker.git
-Set-Location zellij-theme-picker
+git clone https://github.com/fulldecent/zellij-theme-picker-ng.git
+Set-Location zellij-theme-picker-ng
 rustup show
 $cargo = rustup which cargo
 if (-not $cargo) { exit 1 }
@@ -193,7 +193,7 @@ Use `fix:`, `feat:` or `BREAKING CHANGE:` in your commit messages. When you push
 
 The [release workflow](.github/workflows/release.yml) uses Release Please's `rust` release type. That pull request bumps the version in [Cargo.toml](Cargo.toml) and [Cargo.lock](Cargo.lock). The package name is `plugin`. `include-component-in-tag: false` keeps the tag `vMAJOR.MINOR.PATCH`. A tag shaped `plugin-v1.2.3` does not pass the publish step.
 
-The released binary is named `com.github.fulldecent.zellij-theme-picker.wasm`. [Build and test](.github/workflows/build-test.yml) builds and tests that wasm, then attests and uploads it. The release also includes `com.github.fulldecent.zellij-theme-picker.wasm.sigstore.jsonl`. The sidecar records the release version. The wasm file name is stable across versions.
+The released binary is named `com.github.fulldecent.zellij-theme-picker-ng.wasm`. [Build and test](.github/workflows/build-test.yml) builds and tests that wasm, then attests and uploads it. The release also includes `com.github.fulldecent.zellij-theme-picker-ng.wasm.sigstore.jsonl`. The sidecar records the release version. The wasm file name is stable across versions.
 
 In GitHub repository settings, under Actions, General, Workflow permissions, select read and write permissions and check "Allow GitHub Actions to create and approve pull requests". Under General, Releases, enable release immutability. Attestations are available for public repositories. Private repositories require GitHub Enterprise Cloud.
 

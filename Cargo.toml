@@ -5,7 +5,7 @@ edition = "2021"
 license = "MIT"
 authors = ["William Entriken"]
 description = "Zellij Theme Picker: a floating pane that previews a theme and applies it to the session or config.kdl."
-repository = "https://github.com/fulldecent/zellij-theme-picker"
+repository = "https://github.com/fulldecent/zellij-theme-picker-ng"
 
 [dependencies]
 unicode-width = "0.2"
